@@ -26,7 +26,6 @@ namespace TodoApiDTO.BLL.Implementations.Services
             var todoItems = await repository.GetTodoItemsAsync();
             return todoItems
                 .Select(x => ItemToDTO(x));
-
         }
 
         public async Task<TodoItemDTO> GetTodoItemAsync(long id)
@@ -64,8 +63,6 @@ namespace TodoApiDTO.BLL.Implementations.Services
         {
             await repository.DeleteTodoItemAsync(id);
             await repository.SaveAsync();
-            
-            
         }
         private bool TodoItemExists(long id) => 
             repository.GetTodoItemsAsync().Result.Any(e => e.Id == id);
@@ -77,6 +74,5 @@ namespace TodoApiDTO.BLL.Implementations.Services
                 Name = todoItem.Name,
                 IsComplete = todoItem.IsComplete
             };
-
     }
 }

@@ -14,8 +14,6 @@ namespace TodoApi.Controllers
     {
         private readonly ITodoItemService todoItemService;
 
-        
-
         public TodoItemsController(ITodoItemService todoItemService)
         {
            this.todoItemService = todoItemService;
